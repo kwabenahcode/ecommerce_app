@@ -1,6 +1,10 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# Created an instance of the Sqlalchemy
+db = SQLAlchemy(app)
 
 #Routes for the home Page
 @app.route('/')
