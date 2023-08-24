@@ -16,7 +16,7 @@ def market_page():
         {'id': 2, 'name': 'Laptop', 'barcode': '10906101', 'price': 900},
         {'id': 3, 'name': 'keyboard', 'barcode': '10903933', 'price': 200}
         ]
-    return render_template('market.html', items=items)
+    return render_template('market.html', items=items, dollar='$')
 
 # @app.route('/about/<user>')
 # def about(user):

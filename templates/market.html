@@ -43,34 +43,32 @@
           </ul>
       </div>
     </nav>
-    <h3>This is the market page</h3>
-    <table class="table table-bordered text-light">
+    <h3 class="market-heading">Items in the Market</h3>
+
+    <!--Table to store the items in the Market-->
+    <table class="table table-bordered text-light mart-table">
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Barcode</th>
             <th scope="col">Price</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">{{items[0]}}</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+            {%for item in items%}
+            <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.barcode}}</td>
+                <td>{{dollar}}{{item.price}}</td>
+                <td>
+                    <button class="btn btn-outline btn-info">add</button>
+                    <button class="btn btn-outline btn-danger">delete</button>
+                </td>
+              </tr>
+            {% endfor %}
         </tbody>
       </table>
 
