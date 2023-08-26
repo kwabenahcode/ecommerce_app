@@ -1,10 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
+
 # Created an instance of the Sqlalchemy
-db = SQLAlchemy(app)
+db = SQLAlchemy()
+# Sqlalchemy connection
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+db.init_app(app)
+
+
 
 # Creates the various columns in the database
 class items(db.Model):
@@ -13,6 +20,10 @@ class items(db.Model):
     barcode = db.Column(db.String(length=12), nullable=False, unique=True)
     price = db.Column(db.Integer(), nullable=False)
     description = db.Column(db.String(length=1000), nullable=False, unique=True)
+    
+    def __repr__(self):
+        return f'Item: {self.name}'
+
 
 #Routes for the home Page
 @app.route('/')
