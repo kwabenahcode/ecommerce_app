@@ -1,6 +1,15 @@
 from market import db
 
-# Creates the various columns in the database
+
+#creating database for users
+class users(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    username = db.Column(db.String(length=30), nullable=False, unique=True)
+    email = db.Column(db.String(length=50), nullable=False, unique=True)
+    password = db.Column(db.String(length=20), nullable=False, unique=True)
+    
+    
+# Creates the various columns for items in the database
 class items(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=30), nullable=False, unique=True)
