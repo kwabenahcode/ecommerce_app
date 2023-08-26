@@ -1,12 +1,4 @@
-
-
-
-# Created an instance of the Sqlalchemy
-db = SQLAlchemy()
-# Sqlalchemy connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
-db.init_app(app)
-
+from market import db
 
 # Creates the various columns in the database
 class items(db.Model):

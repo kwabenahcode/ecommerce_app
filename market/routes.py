@@ -1,3 +1,7 @@
+from market import app
+from market.models import items
+from flask import render_template
+
 #Routes for the home Page
 @app.route('/')
 @app.route('/home')
