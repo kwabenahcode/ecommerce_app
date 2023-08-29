@@ -18,7 +18,7 @@ def market_page():
 @app.route('/register')
 def register_page():
     form = RegisterForm()
-    return register_page('regiter.html', form = form)
+    return render_template('register.html', form=form)
 
 # @app.route('/about/<user>')
 # def about(user):

@@ -10,6 +10,7 @@ db = SQLAlchemy()
 
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+app.config['SECRET_KEY'] = 'fab07273c260515be3aa1c06'
 engine = create_engine("mysql+pymysql://user:pw@host/db", pool_pre_ping=True)
 Session = sessionmaker(bind=engine)
 session = Session()
