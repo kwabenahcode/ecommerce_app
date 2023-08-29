@@ -1,6 +1,7 @@
 from market import app
 from market.models import items
 from flask import render_template
+from market.forms import RegisterForm
 
 #Routes for the home Page
 @app.route('/')
@@ -13,6 +14,11 @@ def home_page():
 def market_page():
     item = items.query.all()
     return render_template('market.html', items=item, dollar='$')
+
+@app.route('/register')
+def register_page():
+    form = RegisterForm()
+    return register_page('regiter.html', form = form)
 
 # @app.route('/about/<user>')
 # def about(user):
