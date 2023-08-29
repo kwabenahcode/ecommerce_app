@@ -5,7 +5,18 @@
 {%endblock%}
 
 {%block content%}
-    <form method='POST' class='form-register'>
+    <div  class='form-register' >
+        <form method='POST'>
+            <h3 align='center'>Register Form</h3>
+            <div class='move'>
+                {{form.username.label()}}
+                <br />
+                {{form.username(placeholder='Username')}}
 
-    </form>
+                {{form.email.label()}}
+                <br />
+                {{form.username(placeholder='Email')}}
+            </div>
+        </form>
+    </div>
 {%endblock%}

@@ -1,7 +1,8 @@
 .body{
-    background: rgb(15, 15, 42);
-    color: white;
+    background: #eee;
+    color: black;
 }
+
 
 .market-heading{
     margin-top: 4rem;
@@ -10,6 +11,20 @@
 
 .mart-table{
     margin-top: 4rem;
+}
+
+/* Stlyes for Register Page (starts here) */
+.form-register{
+    background: #ffff;
+    width: 30%;
+    height: 30rem;
+    margin-top: 7rem;
+    margin-left: 34rem;
+}
+
+.move{
+    margin-left: 4rem;
+    margin-top: 2rem;
 }
 
 
