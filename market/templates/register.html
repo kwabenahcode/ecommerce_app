@@ -6,9 +6,11 @@
 
 {%block content%}
     <div  class='form-register' >
+        <img>
         <form method='POST'>
-            <h3 align='center'>Register Form</h3>
-            <div class='move'>
+            {{form.hidden_tag()}}
+            <h4 align='center' class='text-success'>Create an Account</h4>
+            <div class='rigister-form-sub-container'>
                 {{form.username.label()}}
                 <br />
                 {{form.username(placeholder='Username')}}
@@ -29,8 +31,7 @@
                 {{form.password2(placeholder='Confirm Password')}}
                 <br />
                 <br/>
-                {{form.submit(class='btn btn-primary')}}
-
+                {{form.submit(class='btn btn-success')}}
             </div>
         </form>
     </div>
