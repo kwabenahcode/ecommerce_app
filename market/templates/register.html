@@ -8,26 +8,26 @@
     <div  class='form-register' >
         <form method='POST'>
             {{form.hidden_tag()}}
-            <h4 align='center' class='text-success'>Create an Account</h4>
+            <h4 align='center' class='text-success pt-3'>Create an Account</h4>
             <div class='rigister-form-sub-container'>
                 {{form.username.label()}}
                 <br />
-                {{form.username(placeholder='Username')}}
+                {{form.username(placeholder='Username',class='register-input-border')}}
                 <br />
                 <br />
                 {{form.email.label()}}
                 <br />
-                {{form.email(placeholder='Email')}}
+                {{form.email(placeholder='Email', class='register-input-border')}}
                 <br />
                 <br />
                 {{form.password1.label()}}
                 <br />
-                {{form.password1(placeholder='Password')}}
+                {{form.password1(placeholder='Password', class='register-input-border')}}
                 <br />
                 <br />
                 {{form.password2.label()}}
                 <br />
-                {{form.password2(placeholder='Confirm Password')}}
+                {{form.password2(placeholder='Confirm Password', class='register-input-border')}}
                 <br />
                 <br/>
                 {{form.submit(class='btn btn-success')}}

@@ -27,6 +27,11 @@
     margin-top: 2rem;
 }
 
+.register-input-border{
+    border-radius: 4px 4px;
+    border: 2px solid rgb(219, 219, 219);
+}
+
 /* Stlyes for Login Page (starts here) */
 .login-form{
     background: #ffff;
@@ -38,7 +43,12 @@
 
 .login-form-sub-container{
     margin-left: 7rem;
-    margin-top: 2rem;
+    margin-top: 5rem;
+}
+
+.login-input-border{
+    border-radius: 4px 4px;
+    border: 2px solid rgb(219, 219, 219);
 }
 
 

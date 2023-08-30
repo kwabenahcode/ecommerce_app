@@ -8,19 +8,19 @@
     <div class='login-form'>
         <form method='POST'>
             {{form.hidden_tag()}}
-            <h4 align='center' class='text-primary'>Please Login Here</h4>
+            <h4 align='center' class='text-primary pt-5'>Please Login Here</h4>
             <div class='login-form-sub-container'>
                 {{form.username.label()}}
                 <br />
-                {{form.username(placeholder='Username')}}
+                {{form.username(placeholder='Username', class='login-input-border')}}
                 <br />
                 <br />
                 {{form.password.label()}}
                 <br />
-                {{form.password(placeholder='Password')}}
+                {{form.password(placeholder='Password', class='login-input-border')}}
                 <br />
                 <br />
-                {{form.login(class='btn btn-primary')}}
+                {{form.login(class='btn btn-primary m-1 ml-5')}}
             </div>
         </form>
     </div>
