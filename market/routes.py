@@ -1,6 +1,6 @@
 from market import app
 from market.models import items, users
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 from market.forms import RegisterForm
 from market import db
 
@@ -28,6 +28,9 @@ def register_page():
         db.session.add(user_create_account)
         db.session.commit()
         return redirect(url_for('market_page'))
+    if form.errors != {}:
+        for error_messages in form.errors.values():
+            flash(f'The errors is {error_messages}')
     return render_template('register.html', form=form)
 
 # @app.route('/about/<user>')
