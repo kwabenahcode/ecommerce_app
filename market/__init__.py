@@ -2,11 +2,16 @@ from flask import Flask, render_template, current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 
+
+
 # Created an instance of the Sqlalchemy
 db = SQLAlchemy()
+#creating an instance of the Bcrypt
+bcrypt = Bcrypt(app)
 
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'

@@ -23,7 +23,7 @@ def register_page():
         user_create_account = users(
                             username=form.username.data,
                             email=form.email.data,
-                            password=form.password1.data,
+                            pass_word=form.password1.data,
                             )
         db.session.add(user_create_account)
         db.session.commit()
