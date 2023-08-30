@@ -30,7 +30,7 @@ def register_page():
         return redirect(url_for('market_page'))
     if form.errors != {}:
         for error_messages in form.errors.values():
-            flash(f'The errors is {error_messages}')
+            flash(f'The errors is {error_messages}', category='danger')
     return render_template('register.html', form=form)
 
 # @app.route('/about/<user>')
