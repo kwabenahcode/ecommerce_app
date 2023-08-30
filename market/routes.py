@@ -36,6 +36,9 @@ def register_page():
 @app.route('/login')
 def login_page():
     form = LoginForm()
+    if form.errors != {}:
+        for err_mess in form.errors.values():
+            flash(f'{err_mess}', category='danger')
     return render_template('login.html', form=form)
 
 # @app.route('/about/<user>')
