@@ -4,7 +4,6 @@ from wtforms.validators import Length, EqualTo,Email, DataRequired, ValidationEr
 from market.models import users
 
 class RegisterForm(FlaskForm):
-    
     def validate_username(self, username_to_check):
         user_exist = users.query.filter_by(username=username_to_check.data).first()
         if user_exist:
@@ -20,3 +19,9 @@ class RegisterForm(FlaskForm):
     password1 = PasswordField(label='Password', validators=[Length(min=6), DataRequired()])
     password2 = PasswordField(label='Confirm Password', validators=[EqualTo('password1'), DataRequired()])
     submit = SubmitField(label='Register')
+    
+
+class LoginForm(FlaskForm):
+    username = StringField(label='User Name', validators=[Length(min=2, max=30), DataRequired()])
+    password = PasswordField(label='Password', validators=[Length(min=6), DataRequired()])
+    login = SubmitField(label='Login')
