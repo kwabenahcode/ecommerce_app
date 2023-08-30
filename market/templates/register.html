@@ -30,6 +30,9 @@
                 {{form.password2(placeholder='Confirm Password', class='register-input-border')}}
                 <br />
                 <br/>
+                <div>
+                    <p>Already have an account ? <br /> Click here to sign-in<a href='{{url_for('login_page')}}'> Login</a></p>
+                </div>
                 {{form.submit(class='btn btn-success')}}
             </div>
         </form>

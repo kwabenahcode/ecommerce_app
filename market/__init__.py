@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 app = Flask(__name__)
 
@@ -10,9 +11,12 @@ app = Flask(__name__)
 
 # Created an instance of the Sqlalchemy
 db = SQLAlchemy()
+
 #creating an instance of the Bcrypt
 bcrypt = Bcrypt(app)
 
+#creating an instance of the LoginManager
+login_manager = LoginManager(app)
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'fab07273c260515be3aa1c06'

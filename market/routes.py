@@ -33,12 +33,14 @@ def register_page():
             flash(f'The error is {error_messages}', category='danger')
     return render_template('register.html', form=form)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_page():
     form = LoginForm()
+    if form.validate_on_submit():
+        user_details_exist = users.query.get(form.username.data)
     if form.errors != {}:
-        for err_mess in form.errors.values():
-            flash(f'{err_mess}', category='danger')
+        for error_messages in form.errors.values():
+            flash(f'The error is{error_messages}', category='danger')
     return render_template('login.html', form=form)
 
 # @app.route('/about/<user>')
