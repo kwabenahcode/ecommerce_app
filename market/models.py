@@ -12,7 +12,7 @@ class users(db.Model, UserMixin):
     budget = db.Column(db.Integer, nullable=False, default=1000)
     items = db.relationship('items', backref='owned_user', lazy=True)
     
-    @property
+    @property 
     def pass_word(self):
         return self.password
     
@@ -20,8 +20,8 @@ class users(db.Model, UserMixin):
     def pass_word(self, plain_text_password):
         self.password = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
             
-    def check_password_correction(self, user_details_exist):
-        return bcrypt.check_password_hash(self.password, user_details_exist)
+    def check_password_correction(self, attempted_password):
+        return bcrypt.check_password_hash(self.password, attempted_password)
             
     
 # Creates the various columns for items in the database
