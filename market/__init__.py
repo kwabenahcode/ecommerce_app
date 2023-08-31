@@ -16,7 +16,7 @@ db = SQLAlchemy()
 bcrypt = Bcrypt(app)
 
 #creating an instance of the LoginManager
-login_manager = LoginManager(app)
+login_manager = LoginManager()
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'fab07273c260515be3aa1c06'
@@ -27,6 +27,5 @@ db.session.expire_on_commit = False
 db.init_app(app)
 
 from market import routes 
-
 # with app.app_context():
 #     db.create_all()

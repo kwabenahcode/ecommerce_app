@@ -1,9 +1,10 @@
 from market import db, bcrypt
+from flask_login import UserMixin
 
 
 
 #creating database for users
-class users(db.Model):
+class users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(50), nullable=False, unique=True)
@@ -18,6 +19,10 @@ class users(db.Model):
     @pass_word.setter
     def pass_word(self, plain_text_password):
         self.password = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+            
+    def check_password_correction(self, user_details_exist):
+        return bcrypt.check_password_hash(self.password, user_details_exist)
+            
     
 # Creates the various columns for items in the database
 class items(db.Model):
