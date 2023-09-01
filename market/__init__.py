@@ -16,7 +16,7 @@ db = SQLAlchemy()
 bcrypt = Bcrypt(app)
 
 #creating an instance of the LoginManager
-login_manager = LoginManager()
+login_manager = LoginManager(app)
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'fab07273c260515be3aa1c06'
