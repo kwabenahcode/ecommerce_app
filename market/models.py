@@ -19,7 +19,7 @@ class users(db.Model, UserMixin):
     @property
     def budget_prettier(self):
         if len(str(self.budget)) >= 4:
-            return (str(self.budget[:-3]))
+            return f'{str(self.budget[:-3])}, {str(self.budget[-3:])}$'
     
     @property 
     def pass_word(self):
