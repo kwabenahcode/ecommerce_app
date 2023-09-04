@@ -51,4 +51,9 @@
     border: 2px solid rgb(219, 219, 219);
 }
 
+/* Styles for Carousel Image */
+.mart-image-height{
+    height: 400px;
+}
+
 
