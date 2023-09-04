@@ -48,6 +48,8 @@ def login_page():
             flash("Your username and password do not match! ", category='danger')
     return render_template('login.html', form=form, current_user=current_user)
 
+@app.route('/logout')
+
 # @app.route('/about/<user>')
 # def about(user):
 #     return f"<h1>This is the about page {user}'s</h1>"
