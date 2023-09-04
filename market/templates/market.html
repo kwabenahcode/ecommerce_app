@@ -4,30 +4,37 @@
 {%endblock%}
 
 {%block content%}
- <!--Table to store the items in the Market-->
- <table class="table table-bordered text-dark mart-table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Barcode</th>
-        <th scope="col">Price</th>
-        <th scope="col">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-        {%for item in items%}
+<!--Table to store the items in the Market-->
+<div class="row">
+  <div class="col-8">
+    <table class="table table-bordered text-dark mart-table">
+      <thead>
         <tr>
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.barcode}}</td>
-            <td>{{dollar}}{{item.price}}</td>
-            <td>
-                <button class="btn btn-outline btn-info">More Info</button>
-                <button class="btn btn-outline btn-success">Purchase this Item</button>
-            </td>
-          </tr>
-        {% endfor %}
-    </tbody>
-  </table>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Barcode</th>
+          <th scope="col">Price</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+          {%for item in items%}
+          <tr>
+              <th scope="row">{{item.id}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.barcode}}</td>
+              <td>{{dollar}}{{item.price}}</td>
+              <td>
+                  <button class="btn btn-outline btn-info">More Info</button>
+                  <button class="btn btn-outline btn-success">Purchase this Item</button>
+              </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4">col-4</div>
+</div>
+ 
+ 
 {%endblock%}
