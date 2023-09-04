@@ -1,4 +1,4 @@
-from flask import Flask, render_template, current_app
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
