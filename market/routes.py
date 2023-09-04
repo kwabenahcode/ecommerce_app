@@ -3,7 +3,7 @@ from market.models import items, users
 from flask import render_template, redirect, url_for, flash
 from market.forms import RegisterForm, LoginForm
 from market import db
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 
 # Routes for the home Page
@@ -16,6 +16,7 @@ def home_page():
 
 
 @app.route('/market')
+@login_required
 def market_page():
     item = items.query.all()
     return render_template('market.html', items=item, dollar='$', current_user=current_user)
