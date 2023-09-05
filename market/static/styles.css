@@ -1,13 +1,14 @@
 .body{
     background: #eee;
     color: black;
+    width: 100%;
 }
 
 
-.market-heading{
+/* .market-heading{
     margin-top: 4rem;
     text-align: center;
-}
+} */
 
 .mart-table{
     margin-top: 4rem;
