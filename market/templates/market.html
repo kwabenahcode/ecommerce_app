@@ -4,7 +4,6 @@
 {%endblock%}
 
 {%block content%}
-{% include 'includes/itemsmodals.html' %}
 <!--Table to store the items in the Market-->
 <div class="row mart-table">
   <div class="col-8">
@@ -21,13 +20,14 @@
       </thead>
       <tbody>
           {%for item in items%}
+          {% include 'includes/itemsmodals.html' %}
           <tr>
               <th scope="row">{{item.id}}</th>
               <td>{{item.name}}</td>
               <td>{{item.barcode}}</td>
               <td>{{dollar}}{{item.price}}</td>
               <td>
-                  <button class="btn btn-outline btn-info" data-toggle='modal' data-target='#Modal-MoreInfo'>More Info</button>
+                  <button class="btn btn-outline btn-info" data-toggle='modal' data-target='#Modal-MoreInfo-{{item.id}}'>More Info</button>
                   <button class="btn btn-outline btn-success">Purchase this Item</button>
               </td>
             </tr>
