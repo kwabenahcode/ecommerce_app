@@ -1,19 +1,19 @@
  <!--Sell Confirm modal-->
- <div class="modal fade" id="Modal-PurchaseConfirm-{{item.id}}" aria-hidden="true">
+ <div class="modal fade" id="Modal-SellingConfirm-{{owned_item.id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-5" id="staticBackdropLabel">{{item.name}}</h5>
+          <h5 class="modal-title fs-5" id="staticBackdropLabel">{{owned_item.name}}</h5>
           <!--<button type="button" class="close" data-bs-dismiss="modal" aria-label='Close'><span aria-hidden='true'>&times;</span></button>-->
         </div>
         <div class="modal-body">
           <form method='POST'>
-            {{purchase_form.hidden_tag()}}
-            <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+            {{selling_form.hidden_tag()}}
+            <input id="sold_item" name="sold_item" type="hidden" value="{{owned_item.name}}">
             <h4>
-                Are you sure you want to purchase {{item.name}} for {{item.price}}$?
+                Are you sure you want to sell {{owned_item.name}} for {{owned_item.price}}$?
               </h4> 
-              {{purchase_form.submit(class='btn btn-outline-success btn-block')}}
+              {{selling_form.submit(class='btn btn-outline-danger btn-block')}}
           </form>
         </div>
         <!--<div class="modal-footer">

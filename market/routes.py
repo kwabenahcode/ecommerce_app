@@ -29,12 +29,13 @@ def market_page():
                 flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
             else:
                 flash('Please you do not have enough balane', category='danger')
+        # Sell Item Logic
         return redirect(url_for('market_page'))    
         
     if request.method == "GET":
         item = items.query.filter_by(owner=None)
         owned_items = items.query.filter_by(owner =current_user.id)
-        return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form, selling_form=selling_form owned_items=owned_items)
+        return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form, selling_form=selling_form, owned_items=owned_items)
 
 
 @app.route('/register', methods=['GET', 'POST'])
