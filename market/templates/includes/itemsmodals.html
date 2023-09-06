@@ -25,10 +25,14 @@
           <!--<button type="button" class="close" data-bs-dismiss="modal" aria-label='Close'><span aria-hidden='true'>&times;</span></button>-->
         </div>
         <div class="modal-body">
-          Are you sure you want to purchase {{item.name}} for {{item.price}}$? 
           <form method='POST'>
-
+            {{purchase_item.hidden_tag()}}
           </form>
+
+          <h4>
+            Are you sure you want to purchase {{item.name}} for {{item.price}}$?
+          </h4> 
+          {{purchase_item.submit(class='btn btn-outline-success btn-block')}}
         </div>
         <!--<div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
