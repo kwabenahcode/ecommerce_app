@@ -55,3 +55,8 @@ class items(db.Model):
 
     def __repr__(self):
         return f'Item: {self.name}'
+    
+    def assigned_user(self, user):
+        self.owner = user.id
+        user.budget -= user.price
+        db.session.commit()
