@@ -15,7 +15,7 @@ class users(db.Model, UserMixin):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(20), nullable=False, unique=True)
-    budget = db.Column(db.Integer, nullable=False, default=1000)
+    budget = db.Column(db.Integer, nullable=False, default=10000)
     items = db.relationship('items', backref='owned_user', lazy=True)
 
     @property
@@ -37,6 +37,10 @@ class users(db.Model, UserMixin):
 
     def check_password_correction(self, attempted_password):
         return bcrypt.check_password_hash(self.password, attempted_password)
+    
+    def can_purchase(self, item_obj):
+        return self.budget >= item_obj.price
+        
 
 
 # Creates the various columns for items in the database
