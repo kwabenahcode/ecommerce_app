@@ -27,12 +27,12 @@
         <div class="modal-body">
           <form method='POST'>
             {{purchase_item.hidden_tag()}}
+            <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+            <h4>
+                Are you sure you want to purchase {{item.name}} for {{item.price}}$?
+              </h4> 
+              {{purchase_item.submit(class='btn btn-outline-success btn-block')}}
           </form>
-
-          <h4>
-            Are you sure you want to purchase {{item.name}} for {{item.price}}$?
-          </h4> 
-          {{purchase_item.submit(class='btn btn-outline-success btn-block')}}
         </div>
         <!--<div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -21,7 +21,7 @@ def market_page():
     item = items.query.all()
     purchase_item =PurchaseItemForm()
     if purchase_item.validate_on_submit():
-        print(purchase_item)
+        print(purchase_item['submit'])
     return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_item = purchase_item)
 
 
