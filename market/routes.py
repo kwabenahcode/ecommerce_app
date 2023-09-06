@@ -18,18 +18,20 @@ def home_page():
 @app.route('/market', methods=['GET', 'POST'])
 @login_required
 def market_page():
-    item = items.query.all()
     purchase_form =PurchaseItemForm()
     if request.method == 'POST':
-        purchase_item = request.form.get('purchased_item')
-        p_item_object = items.query.filter_by(name=purchase_item).first()
+        purchased_item = request.form.get('purchased_item')
+        p_item_object = items.query.filter_by(name=purchased_item).first()
         if p_item_object.price > current_user.budget:
-            flash('Please you do not have insufficient balance', category='info')
+            flash('Please you do not have insufficient balance', category='danger')
         else:
             p_item_object.owner = current_user.id
             current_user.budget -= p_item_object.price
             db.session.commit()
-    return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form)
+            flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
+    if request.method == "GET":
+        item = items.query.filter_by(owner=None)
+        return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
