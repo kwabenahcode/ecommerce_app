@@ -29,7 +29,16 @@ def market_page():
                 flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
             else:
                 flash('Please you do not have enough balane', category='danger')
+                
         # Sell Item Logic
+        sold_item = request.form.get('sold_item')
+        s_item_object = items.query.filter_by(name=sold_item).first()
+        if s_item_object:
+            if current_user.can_sell(s_item_object):
+                s_item_object.sell(current_user)
+                flash("Item was sold back to the market successfuly", category='success')
+            else:
+                flash(f"Something went worng with selling {s_item_object.name}", category='danger')
         return redirect(url_for('market_page'))    
         
     if request.method == "GET":
