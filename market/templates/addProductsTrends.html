@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    Admin-add-Products-Trends
+{%endblock%}
+
+{%block content%}
+<div class='login-form'>
+    <form method='POST'>
+        {{form.hidden_tag()}}
+        <h4 align='center' class='text-primary pt-5'>Add Products Trends</h4>
+        <div class='login-form-sub-container'>
+            {{form.product_name.label()}}
+            <br />
+            {{form.product_name(placeholder='Prooduct name', class='login-input-border')}}
+            <br />
+            <br />
+            {{form.product_desc.label()}}
+            <br />
+            {{form.product_desc(placeholder='Description', class='login-input-border')}}
+            <br />
+            <br />
+            {{form.product_price.label()}}
+            <br />
+            {{form.product_price(placeholder='Product Price', class='login-input-border')}}
+            <br />
+            <br />
+            {{form.product_image.label()}}
+            <br />
+            {{form.product_image(placeholder='product image', class='login-input-border')}}
+            <br />
+            <br />
+            {{form.submit(class='btn btn-primary m-1 ml-5')}}
+        </div>
+    </form>
+</div>
+{%endblock%}

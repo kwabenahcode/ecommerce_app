@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, FloatField,TextAreaField
 from wtforms.validators import Length, EqualTo,Email, DataRequired, ValidationError
 from market.models import users
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 class RegisterForm(FlaskForm):
     def validate_username(self, username_to_check):
@@ -31,3 +32,13 @@ class PurchaseItemForm(FlaskForm):
     
 class SellItemForm(FlaskForm):
     submit = SubmitField(label='Sell')
+
+class ProductUploadForm(FlaskForm):
+    product_name = StringField(label='Product Name', validators=[DataRequired()])
+    product_price = StringField(label='Price', validators=[DataRequired()])
+    product_desc = TextAreaField(label='Description', validators=[DataRequired()])
+    product_image = FileField(label='Upload Image', validators=[
+        FileRequired(),
+        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')
+    ])
+    submit = SubmitField('Upload Product')
