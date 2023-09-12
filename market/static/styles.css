@@ -16,6 +16,15 @@
     margin-top: 3rem;
 }
 
+/* ADD PRODUCT FORM STYLING */
+.add-product-form{
+    background: #ffff;
+    width: 30%;
+    height: 40rem;
+    margin-top: 5rem;
+    margin-left: 34rem;
+}
+
 
 /* .market-heading{
     margin-top: 4rem;

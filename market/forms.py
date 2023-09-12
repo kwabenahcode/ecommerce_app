@@ -41,4 +41,4 @@ class ProductUploadForm(FlaskForm):
         FileRequired(),
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')
     ])
-    submit = SubmitField('Upload Product')
+    submit = SubmitField(label='Upload Product')

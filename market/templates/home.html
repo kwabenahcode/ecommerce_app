@@ -30,8 +30,9 @@
     <div class="card" style="width: 18rem;">
       <img src="{{url_for('static', filename='iphone-14pro.jpg')}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{item.name}}</h5>
-        <p class="card-text">{{item.description}}</p>
+        <h5 class="card-title">{{item.product_name}}</h5>
+        <p class="card-text">{{item.product_desc}}</p>
+        <p class="card-text">{{item.product_price}}</p>
       </div>
     </div>
   {%endfor%}

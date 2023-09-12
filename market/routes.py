@@ -1,5 +1,5 @@
 from market import app
-from market.models import items, users, products_trends
+from market.models import items, users, Products
 from flask import render_template, redirect, url_for, flash, request
 from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, ProductUploadForm
 from market import db
@@ -10,7 +10,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/', methods =['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home_page():
-    item = products_trends.query.all()
+    item = Products.query.all()
     return render_template('home.html', current_user=current_user, items=item )
 
 # Routes for the market Page
@@ -91,18 +91,19 @@ def logout_page():
     return redirect(url_for('home_page'))
 
 @app.route('/products-trends', methods=['GET', 'POST'])
-def products():
+def add_products():
     form = ProductUploadForm()
     if form.validate_on_submit():
-        product_name = form.name.data
-        product_price = form.price.data
-        product_desc = form.description.data
-        product_image = form.image.data.read()  # Read the image binary data
-        new_product = products_trends(name=product_name, price=product_price, description=product_desc, image_data=product_image)
+        new_product = Products(
+            product_name = form.name.data,
+            product_price = form.price.data,
+            product_desc = form.description.data,
+            product_image = form.image.data.read()  # Read the image binary data 
+        )
         db.session.add(new_product)
         db.session.commit()
         flash('Product uploaded successfully', category='success')
-        return redirect(url_for('products'))
+        return redirect(url_for('add_products'))
     return render_template('addProductsTrends.html', form=form)
 
 

@@ -69,10 +69,10 @@ class items(db.Model):
         user.budget += self.price
         db.session.commit()
         
-class products_trends(db.Model):
+class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True)
     product_name = db.Column(db.String(50), nullable=False, unique=True)
-    product_desc = db.Column(db.String(10000), nullable=False, unique=True)
+    product_desc = db.Column(db.String(1000), nullable=False, unique=True)
     product_price = db.Column(db.String(50), nullable=False)
     product_image = db.Column(db.LargeBinary)
         
