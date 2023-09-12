@@ -10,7 +10,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/')
 @app.route('/home')
 def home_page():
-    return render_template('home.html', current_user=current_user)
+    item = items.query.all()
+    return render_template('home.html', current_user=current_user, items=item )
 
 # Routes for the market Page
 
@@ -28,7 +29,7 @@ def market_page():
                 p_item_object.assigned_user(current_user)
                 flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
             else:
-                flash('Please you do not have enough balane', category='danger')
+                flash('Please you do not have enough balance', category='danger')
                 
         # Sell Item Logic
         sold_item = request.form.get('sold_item')
@@ -42,7 +43,7 @@ def market_page():
         return redirect(url_for('market_page'))    
         
     if request.method == "GET":
-        item = items.query.filter_by(owner=None)
+        item = items.query.filter_by()
         owned_items = items.query.filter_by(owner =current_user.id)
         return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form, selling_form=selling_form, owned_items=owned_items)
 

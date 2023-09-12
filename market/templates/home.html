@@ -21,4 +21,18 @@
     <p  class="font-monospace">We Are here to Make your Life Easier with Marketing</p>
     <a class="btn btn-primary " href="{{url_for('market_page')}}">Get-Started</a>
   </div>
+
+  <div class='trends-products-container'>
+    <h3>Top Trending Products</h3>
+    <div class="card" style="width: 18rem;">
+      {% for item in items %}
+      {%endfor%}
+      <img src="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 {% endblock%}
