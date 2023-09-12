@@ -16,23 +16,25 @@
     </div>
   </div>
 
-  <div align='center' class="text-nowrap border welcome-text-homePage">
+  <!--LET'S GET STARTED MESSAGE-->
+  <!--<div align='center' class="text-nowrap border welcome-text-homePage">
     <h3 >Let's Get Started on <i>Flasky<span class="text-warning">Mart</i></h3>
     <p  class="font-monospace">We Are here to Make your Life Easier with Marketing</p>
     <a class="btn btn-primary " href="{{url_for('market_page')}}">Get-Started</a>
-  </div>
+  </div>-->
+  <!--LET'S GET STARTED MESSAGE ENDS HERE-->
 
+  <h3 align='center' class='heading-for-product-trends'>Top Trending Products</h3>
   <div class='trends-products-container'>
-    <h3>Top Trending Products</h3>
+    {% for item in items %}
     <div class="card" style="width: 18rem;">
-      {% for item in items %}
-      {%endfor%}
-      <img src="" class="card-img-top" alt="...">
+      <img src="{{url_for('static', filename='iphone-14pro.jpg')}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">{{item.description}}</p>
+        <a href="#" class="btn btn-primary">{{}}</a>
       </div>
     </div>
+  {%endfor%}
   </div>
 {% endblock%}

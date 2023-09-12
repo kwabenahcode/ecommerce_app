@@ -4,6 +4,18 @@
     width: 100%;
 }
 
+/* Homepage-styling */
+.trends-products-container{
+    display: flex;
+    gap: 2rem;
+    margin: 3rem;
+}
+
+.heading-for-product-trends{
+    margin-bottom: -2rem;
+    margin-top: 3rem;
+}
+
 
 /* .market-heading{
     margin-top: 4rem;

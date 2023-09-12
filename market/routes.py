@@ -7,10 +7,10 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 
 # Routes for the home Page
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods =['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home_page():
-    item = items.query.all()
+    item = product_trends.query.all()
     return render_template('home.html', current_user=current_user, items=item )
 
 # Routes for the market Page
