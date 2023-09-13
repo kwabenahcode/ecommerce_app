@@ -106,11 +106,6 @@ def add_products():
                     product_price= form.product_price.data,
                     product_image= form.product_image.data.read()  # Read the image binary data
                 )
-                for file in form.product_image:
-                        if file is None:
-                            print("None")
-                        else:
-                            print("Occu")
                 db.session.add(new_product)
                 db.session.commit()
                 flash('Product uploaded successfully', category='success')
