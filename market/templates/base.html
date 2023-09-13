@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">-->
+
     <!-- Bootstrap font -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!--Styles CSS-->
@@ -21,35 +22,35 @@
   <body class='body'>
     <!--navigation bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{url_for('home_page')}}">Flasky<span class="text-warning">Mart</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{{url_for('market_page')}}">Market</a>
-          </li>
-        </ul>
-        {% if current_user.is_authenticated %}
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" style='color: lawngreen; fon-weight: bold;'>
-                <i class='bi-coin'>{{current_user.budget_prettier}}</i>
-              </a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('home_page')}}">Flasky<span class="text-warning">Mart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('home_page')}}">Home</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link">Welcome, {{current_user.username}}</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{url_for('logout_page')}}">Logout</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('market_page')}}">Market</a>
             </li>
           </ul>
-        {% else%}
+          {% if current_user.is_authenticated %}
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" style='color: lawngreen; fon-weight: bold;'>
+                  <i class='bi-coin'>{{current_user.budget_prettier}}</i>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">Welcome, {{current_user.username}}</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('logout_page')}}">Logout</a>
+              </li>
+            </ul>
+        {%else%}
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
@@ -58,24 +59,22 @@
               <a class="nav-link" href="{{url_for('register_page')}}">Register</a>
             </li>
           </ul>
-        {% endif%}
-
+        {%endif%}
+        </div>
       </div>
     </nav>
     <!--Navigation bar ends here-->
 
     <!--Display Error Messages-->
-    {%with messages = get_flashed_messages(with_categories=true)%}
-      {%if messages%}
-        {%for category,message in messages%}
-          <div class='alert alert-{{category}}'>
-            <button type='button' class='mb-2 close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-            {{message}}
-          </div>
-        {%endfor%}
-      {%endif%}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          {% endfor %}
+      {% endif %}
     {% endwith %}
     <!--Display error messages code, ends here.-->
 
@@ -89,6 +88,7 @@
 
     
     <!-- Bootstrap Js-->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-btefZR5f5yrFoa8fu5R8F5F5f5G5f5F5f5u6Ica9U5P9rra5K6C5BbXDO5q2f5C5Bb" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

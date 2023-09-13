@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 
 # Created an instance of the Sqlalchemy
