@@ -75,5 +75,11 @@ class Products(db.Model):
     product_desc = db.Column(db.String(1000), nullable=False, unique=True)
     product_price = db.Column(db.String(50), nullable=False)
     product_image = db.Column(db.LargeBinary)
+    
+    # def __init__(self, product_name, product_desc, product_price, product_image):
+    #     self.product_name = product_name
+    #     self.product_desc = product_desc
+    #     self.product_price = product_price
+    #     self.product_image = product_image
         
     

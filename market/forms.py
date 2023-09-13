@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, Form
 from wtforms import StringField, PasswordField, SubmitField, FloatField,TextAreaField
 from wtforms.validators import Length, EqualTo,Email, DataRequired, ValidationError
 from market.models import users
@@ -34,11 +34,8 @@ class SellItemForm(FlaskForm):
     submit = SubmitField(label='Sell')
 
 class ProductUploadForm(FlaskForm):
-    product_name = StringField(label='Product Name', validators=[DataRequired()])
-    product_price = StringField(label='Price', validators=[DataRequired()])
-    product_desc = TextAreaField(label='Description', validators=[DataRequired()])
-    product_image = FileField(label='Upload Image', validators=[
-        FileRequired(),
-        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')
-    ])
+    product_name = StringField(label='Product Name', validators=[Length(min=2, max=30), DataRequired()])
+    product_price = StringField(label='Price', validators=[Length(min=2, max=30), DataRequired()])
+    product_desc = TextAreaField(label='Description', validators=[Length(min=2, max=1000), DataRequired()])
+    product_image = FileField(label='Upload Image', validators=[FileRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')])
     submit = SubmitField(label='Upload Product')

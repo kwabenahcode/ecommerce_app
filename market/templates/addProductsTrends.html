@@ -6,7 +6,7 @@
 
 {%block content%}
 <div class='add-product-form'>
-    <form method='POST'>
+    <form method='POST' enctype='multipart/form-data'>
         {{form.hidden_tag()}}
         <h4 align='center' class='text-primary pt-5'>Add Products Trends</h4>
         <div class='login-form-sub-container'>
@@ -27,7 +27,7 @@
             <br />
             {{form.product_image.label()}}
             <br />
-            {{form.product_image(placeholder='product image', class='login-input-border')}}
+            {{form.product_image(placeholder='Product image', class='login-input-border')}}
             <br />
             <br />
             {{form.submit(class='btn btn-primary m-1 ml-5')}}

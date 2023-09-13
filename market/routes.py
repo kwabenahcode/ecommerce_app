@@ -1,8 +1,10 @@
+import base64
 from market import app
 from market.models import items, users, Products
 from flask import render_template, redirect, url_for, flash, request
 from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, ProductUploadForm
 from market import db
+from sqlalchemy.exc import SQLAlchemyError
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -11,6 +13,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/home', methods=['GET', 'POST'])
 def home_page():
     item = Products.query.all()
+    for img in item:
+        img.product_image = base64.b64encode(img.product_image).decode('utf-8')
     return render_template('home.html', current_user=current_user, items=item )
 
 # Routes for the market Page
@@ -80,7 +84,7 @@ def login_page():
                 f'success! you are logged in as: {attempted_user.username}', category='success')
             return redirect(url_for('market_page'))
         else:
-            flash("Your username and password do not match! ", category='danger')
+            flash("Your username or password is invalid! ", category='danger')
     return render_template('login.html', form=form, current_user=current_user)
 
 
@@ -93,17 +97,28 @@ def logout_page():
 @app.route('/products-trends', methods=['GET', 'POST'])
 def add_products():
     form = ProductUploadForm()
-    if form.validate_on_submit():
-        new_product = Products(
-            product_name = form.name.data,
-            product_price = form.price.data,
-            product_desc = form.description.data,
-            product_image = form.image.data.read()  # Read the image binary data 
-        )
-        db.session.add(new_product)
-        db.session.commit()
-        flash('Product uploaded successfully', category='success')
-        return redirect(url_for('add_products'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            try:
+                new_product = Products(
+                    product_name= form.product_name.data,
+                    product_desc= form.product_desc.data,
+                    product_price= form.product_price.data,
+                    product_image= form.product_image.data.read()  # Read the image binary data
+                )
+                for file in form.product_image:
+                        if file is None:
+                            print("None")
+                        else:
+                            print("Occu")
+                db.session.add(new_product)
+                db.session.commit()
+                flash('Product uploaded successfully', category='success')
+                return redirect(url_for('login_page'))
+            except SQLAlchemyError as e:
+                db.session.rollback()  # Rollback changes in case of an error
+                flash('Error adding product to the database', category='error')
+                app.logger.error(str(e))  # Log the error for debugging
     return render_template('addProductsTrends.html', form=form)
 
 
