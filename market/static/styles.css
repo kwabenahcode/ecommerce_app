@@ -82,7 +82,17 @@
 }
 
 .clients-reviews{
-    width: 30rem;
+    width: 25rem;
+    text-align: justify;
+    background: #fff;
+    margin-left: 5rem;
+    margin: 3rem;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.client-text{
+    padding: 2rem;
 }
 
 
