@@ -32,14 +32,14 @@
 
   <!--LET'S GET STARTED MESSAGE-->
   <div align='center' class="text-nowrap border welcome-text-homePage">
-    <h3 >Let's Get Started on <i>Flasky<span class="text-warning">Mart</i></h3>
-    <p  class="font-monospace">We Are here to Make your Life Easier with Marketing</p>
+    <h3 >Let's Get Started on Flasky<span class="text-warning">Mart</h3>
+    <p  class="">We Are here to Make your Life Easier with Marketing</p>
     <a class="btn btn-primary " href="{{url_for('market_page')}}">Get-Started</a>
   </div>
   <!--LET'S GET STARTED MESSAGE ENDS HERE-->
 
   <!--PRODUCTS TRENDING CARDS STARTS HERE-->
-  <h3 align='center' class='heading-for-product-trends'>Top Trending Products</h3>
+  <h3 align='center' class='heading-for-product-trends'>Top Trending <span class="text-warning">Products</span></h3>
   <div class='trends-products-container'>
     {% for item in items %}
     <div class="card" style="width: 20rem;">
@@ -114,9 +114,11 @@
   </div>
   <!--CLIENTS REVIEW CARD ENDS HERE-->
 
+  <!--FOOTER STARTS HERE-->
   <footer class="footer">
-    <p>&copy; 2023 Your Flask App. All rights reserved.</p>
-    <p>Designed with ❤️ by <a href="https://www.example.com" target="_blank">Your Name</a></p>
-</footer>
+    <p>&copy; 2023 Flasky<span class="text-warning">Mart</span>. All rights reserved.</p>
+    <p>Designed with ❤️ by <a href="https://www.linkedin.com/in/emmanuel-ofori-97439122b/" target="_blank">Emmanuel Ofori</a></p>
+  </footer>
+  <!--FOOTER ENDS HERE-->
 
 {% endblock%}
