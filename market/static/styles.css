@@ -73,7 +73,7 @@
 
 /* Styles for Carousel Image */
 .mart-image-height{
-    height: 600px;
+    height: 650px;
     width: 100%;
 }
 
@@ -93,6 +93,7 @@
     background: #fff;
     margin-left: 5rem;
     margin: 3rem;
+    padding: auto;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -164,5 +165,65 @@
     background-color: transparent;
     border: none;
 }
+
+/* PROMOTION SECTION STYLES */
+.promo-text{
+    padding: 3rem;
+    margin-left: 1rem;
+}
+
+.promo-products{
+    width: 30rem;
+    height: 400px; 
+    position: relative;
+    text-align: justify;
+    background: #fff;
+    margin-left: 3rem;
+    margin: 3rem; 
+    padding: auto;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.promo-products-main-container{
+    margin-top: 5rem;
+    display: flex;
+}
+
+.promo-heading{
+    margin-bottom: -6rem;
+    margin-top: 6rem;
+}
+
+.promo-title{
+    position: absolute;
+    margin-left: 5rem;
+    margin-top: 1.4rem;
+    color: rgb(23, 111, 111);
+}
+
+/* FOOTER STYLING */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #007bff;
+}
+
+
 
 

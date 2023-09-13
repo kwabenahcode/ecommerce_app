@@ -7,7 +7,7 @@
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="3000">
-        <img src="{{url_for('static', filename='mart1.jpg')}}" class="d-block mart-image-height" alt="...">
+        <img src="{{url_for('static', filename='girls1.jpg')}}" class="d-block img-fluid mart-image-height" alt="...">
       </div>
       <div class="carousel-item active" data-bs-interval="3000">
         <img src="{{url_for('static', filename='laptop1.jpg')}}" class="d-block mart-image-height" alt="...">
@@ -65,11 +65,37 @@
   <!--SIGN-UP HERE FOR MORE INFO SECTION ENDS HERE-->
 
   <!--PRODUCTS PROMOTION SECTION STARTS HERE-->
-  
-
-
-
-
+  <h3 align='center' class='promo-heading'>Promotions</h3>
+  <div class='promo-products-main-container'>
+      <div class="promo-products">
+        <img src='{{url_for('static', filename='promo1.jpg')}}' class='img-fluid'alt='...' />
+        <h5  class='promo-title'>Sika Y3 MOgya Promo</h5>
+        <p class="promo-text">
+          <b>"</b>
+          Promotion starts early next month
+          <b>"</b>
+        </p>
+      </div>
+      <div class="promo-products">
+        <img src='{{url_for('static', filename='promo2.jpg')}}' class='img-fluid'alt='...' />
+        <h5  class='client-review-username'>Sika Y3 MOgya Promo</h5>
+        <p class="promo-text">
+          <b>"</b>
+          Promotions oo....
+          <b>"</b>
+        </p>
+      </div>
+      <div class="promo-products">
+        <img src='{{url_for('static', filename='promo3.jpg')}}' class='img-fluid'alt='...' />
+        <h5  class='client-review-username'>Sika Y3 MOgya Promo</h5>
+        <p class="promo-text">
+          <b>"</b>
+          Pro-Pro
+          <b>"</b>
+        </p>
+      </div>
+  </div>
+  <!--PRODUCTS PROMOTION SECTION ENDS HERE-->
 
   <!--CLIENTS REVIEW CARD STARTS HERE-->
   <div class='clients-reviews-main-container'>
@@ -87,5 +113,10 @@
       </div>
   </div>
   <!--CLIENTS REVIEW CARD ENDS HERE-->
+
+  <footer class="footer">
+    <p>&copy; 2023 Your Flask App. All rights reserved.</p>
+    <p>Designed with ❤️ by <a href="https://www.example.com" target="_blank">Your Name</a></p>
+</footer>
 
 {% endblock%}
