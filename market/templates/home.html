@@ -42,7 +42,7 @@
   <h3 align='center' class='heading-for-product-trends'>Top Trending Products</h3>
   <div class='trends-products-container'>
     {% for item in items %}
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 20rem;">
       <img src="data:image/jpeg;base64, {{ item.product_image }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{item.product_name}}</h5>
@@ -53,4 +53,12 @@
   {%endfor%}
   </div>
   <!--PRODUCTS TRENDING CARDS ENDS HERE-->
+
+  <div class="clients-reviews">
+    <h3 align='center'>Reviews</h3>
+    <p><b>"</b>After defining the model, you need to create the corresponding database 
+      table by running a migration. If you haven't set up database migrations yet, 
+      you can do so using a tool like Alembic, as mentioned in a previous answer.<b>"</b></p>
+  </div>
+
 {% endblock%}

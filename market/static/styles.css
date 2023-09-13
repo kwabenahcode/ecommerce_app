@@ -27,19 +27,11 @@
 }
 
 
-/* .market-heading{
-    margin-top: 4rem;
-    text-align: center;
-} */
-
 .mart-table{
     margin-top: 4rem;
     margin-left: 2rem;
 }
 
-/* .mart-div{
-    margin-top: 3rem;
-} */
 
 /* Stlyes for Register Page (starts here) */
 .form-register{
@@ -86,8 +78,11 @@
 }
 
 .welcome-text-homePage{
-    /* margin-top: 2rem; */
     padding: 3rem;
+}
+
+.clients-reviews{
+    width: 30rem;
 }
 
 
