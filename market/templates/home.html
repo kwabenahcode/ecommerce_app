@@ -6,16 +6,16 @@
   <!--CAROUSEL STARTS HERE-->
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
+      <div class="carousel-item active" data-bs-interval="3000">
         <img src="{{url_for('static', filename='mart1.jpg')}}" class="d-block mart-image-height" alt="...">
       </div>
-      <div class="carousel-item" data-bs-interval="2000">
+      <div class="carousel-item active" data-bs-interval="3000">
         <img src="{{url_for('static', filename='laptop1.jpg')}}" class="d-block mart-image-height" alt="...">
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item active" data-bs-interval="3000">
         <img src="{{url_for('static', filename='phone1.jpg')}}" class="d-block mart-image-height" alt="...">
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item active" data-bs-interval="3000">
         <img src="{{url_for('static', filename='router1.jpg')}}" class="d-block mart-image-height" alt="...">
       </div>
     </div>
@@ -54,9 +54,20 @@
   </div>
   <!--PRODUCTS TRENDING CARDS ENDS HERE-->
 
-  <div>
+  <!--SIGN-UP HERE FOR MORE INFO SECTION STARTS HERE-->
+    <div class='email-for-more-updates'>
+      
+    </div>
+  <!--SIGN-UP HERE FOR MORE INFO SECTION ENDS HERE-->
+
+
+
+  <!--CLIENTS REVIEW CARD STARTS HERE-->
+  <div class='clients-reviews-main-container'>
     <h3 align='center'>Reviews</h3>
       <div class="clients-reviews">
+        <img src='{{url_for('static', filename='girls1.jpg')}}' class='img-fluid client-review-image'alt='...' />
+        <h5  class='client-review-username'>Mr. Opong Killer bean</h5>
         <p class="client-text">
           <b>"</b>
           After defining the model, you need to create the corresponding database 
@@ -66,5 +77,6 @@
         </p>
       </div>
   </div>
+  <!--CLIENTS REVIEW CARD ENDS HERE-->
 
 {% endblock%}

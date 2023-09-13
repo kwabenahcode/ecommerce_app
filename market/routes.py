@@ -18,8 +18,6 @@ def home_page():
     return render_template('home.html', current_user=current_user, items=item )
 
 # Routes for the market Page
-
-
 @app.route('/market', methods=['GET', 'POST'])
 @login_required
 def market_page():

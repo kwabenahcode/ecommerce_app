@@ -81,8 +81,14 @@
     padding: 3rem;
 }
 
+
+.clients-reviews-main-container{
+    margin-top: 5rem;
+}
+
 .clients-reviews{
-    width: 25rem;
+    width: 30rem;
+    position: relative;
     text-align: justify;
     background: #fff;
     margin-left: 5rem;
@@ -92,7 +98,31 @@
 
 
 .client-text{
-    padding: 2rem;
+    padding: 5rem;
+    margin-left: 2rem;
 }
+
+.client-review-image{
+    clip-path: circle();
+    position: absolute;
+    width: 132px;
+    margin-top: -2rem;
+}
+
+.client-review-username{
+    position: absolute;
+    margin-left: 7rem;
+    margin-top: 1.4rem;
+    color: rgb(23, 111, 111);
+}
+
+/* ENDS HERE */
+
+/* STARTS HERE */
+.email-for-more-updates{
+    background: #131FC7;
+    height: 150px;
+}
+
 
 
