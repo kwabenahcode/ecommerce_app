@@ -8,8 +8,6 @@ def load_user(user_id):
     return users.query.get(int(user_id))
 
 # creating database for users
-
-
 class users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), nullable=False, unique=True)

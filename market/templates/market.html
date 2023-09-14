@@ -7,34 +7,27 @@
 <!--Table to store the items in the Market-->
 <div class="row mart-table">
   <div class="col-8">
-    Available Items
-    <table class="table table-bordered text-dark">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Barcode</th>
-          <th scope="col">Price</th>
-          <th scope="col">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-          {%for item in items%}
-          {% include 'includes/itemsmodals.html' %}
-          <tr>
-              <th scope="row">{{item.id}}</th>
-              <td>{{item.name}}</td>
-              <td>{{item.barcode}}</td>
-              <td>{{dollar}}{{item.price}}</td>
-              <td>
-                  <button class="btn btn-outline btn-info" data-toggle='modal' data-target='#Modal-MoreInfo-{{item.id}}'>More Info</button>
-                  <button class="btn btn-outline btn-success" data-toggle='modal' data-target='#Modal-PurchaseConfirm-{{item.id}}'>Purchase this Item</button>
-              </td>
-            </tr>
-          {% endfor %}
-      </tbody>
-    </table>
+    <h4>Available Items</h4>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for item in items %}
+        {% include 'includes/itemsmodals.html' %}
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">Barcode: {{ item.barcode }}</p>
+              <p class="card-text">Price: {{ dollar }}{{ item.price }}</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-info" data-bs-toggle='modal' data-bs-target='#Modal-MoreInfo-{{ item.id }}'>More Info</button>
+                <button class="btn btn-outline-success" data-bs-toggle='modal' data-bs-target='#Modal-PurchaseConfirm-{{ item.id }}'>Purchase this Item</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
+</div>
   <div class="col-4">
     Purchased Items
     <div class='row'>
@@ -46,7 +39,7 @@
             <div class="card-body">
               <h5 class="card-title">{{owned_item.name}}</h5>
               <p >This Item cost {{owned_item.price}} $</p>
-              <button data-target="#Modal-SellingConfirm-{{owned_item.id}}" data-toggle="modal" class="btn btn-outline-danger">Sell This Item</button>
+              <button data-bs-target="#Modal-SellingConfirm-{{owned_item.id}}" data-bs-toggle="modal" class="btn btn-outline-danger">Sell This Item</button>
             </div>
           </div>
         </div>
