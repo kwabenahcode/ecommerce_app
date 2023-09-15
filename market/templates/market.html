@@ -33,9 +33,9 @@
 
 <!--Card to store the items in the Market-->
 <div class="row mart-table">
-  <div class="col-8">
+  <div class="market-container">
     <h4 align='center'>Available Items</h4>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for item in items %}
         {% include 'includes/itemsmodals.html' %}
         <div class="col">
@@ -57,6 +57,7 @@
 </div>
 <!--Card to store the items in the Market Ends here-->
 
+  <!--Products Added to cart-->
   <div class="col-4">
     Purchased Items
     <div class='row'>
