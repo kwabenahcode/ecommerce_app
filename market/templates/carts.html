@@ -4,4 +4,24 @@
     Carts
 {%endblock%}
 
-{}
+{%block content%}
+    <!--Products Added to cart-->
+    <div class="col-4">
+        Purchased Items
+        <div class='row'>
+          {%for owned_item in owned_items%}
+          {% include 'includes/owned_items_modal.html'%}
+            <div class='col-md-6'>
+              <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Purchased Item</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{owned_item.name}}</h5>
+                  <p >This Item cost {{owned_item.price}} $</p>
+                  <button data-bs-target="#Modal-SellingConfirm-{{owned_item.id}}" data-bs-toggle="modal" class="btn btn-outline-danger">Sell This Item</button>
+                </div>
+              </div>
+            </div>
+          {%endfor%}
+        </div>
+      </div>
+{%endblock%}
