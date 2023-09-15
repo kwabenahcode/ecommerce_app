@@ -8,16 +8,16 @@
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="3000">
-      <img src="{{url_for('static', filename='girls1.jpg')}}" class="d-block img-fluid mart-image-height" alt="...">
+      <img src="{{url_for('static', filename='mart1.jpg')}}" class="d-block img-fluid mart-image-height" alt="...">
     </div>
     <div class="carousel-item active" data-bs-interval="3000">
-      <img src="{{url_for('static', filename='laptop1.jpg')}}" class="d-block mart-image-height" alt="...">
+      <img src="{{url_for('static', filename='mart2.jpg')}}" class="d-block mart-image-height" alt="...">
     </div>
     <div class="carousel-item active" data-bs-interval="3000">
-      <img src="{{url_for('static', filename='phone1.jpg')}}" class="d-block mart-image-height" alt="...">
+      <img src="{{url_for('static', filename='mart3.jpg')}}" class="d-block mart-image-height" alt="...">
     </div>
     <div class="carousel-item active" data-bs-interval="3000">
-      <img src="{{url_for('static', filename='router1.jpg')}}" class="d-block mart-image-height" alt="...">
+      <img src="{{url_for('static', filename='mart4.jpg')}}" class="d-block mart-image-height" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -30,10 +30,11 @@
   </button>
 </div>
 <!--END OF CAROUSEL-->
-<!--Table to store the items in the Market-->
+
+<!--Card to store the items in the Market-->
 <div class="row mart-table">
   <div class="col-8">
-    <h4>Available Items</h4>
+    <h4 align='center'>Available Items</h4>
     <div class="row row-cols-1 row-cols-md-2 g-4">
       {% for item in items %}
         {% include 'includes/itemsmodals.html' %}
@@ -54,6 +55,8 @@
     </div>
   </div>
 </div>
+<!--Card to store the items in the Market Ends here-->
+
   <div class="col-4">
     Purchased Items
     <div class='row'>
