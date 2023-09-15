@@ -32,8 +32,6 @@ def market_page():
                 flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
             else:
                 flash('Please you do not have enough balance', category='danger')
-                
-        # Sell Item Logic
         sold_item = request.form.get('sold_item')
         s_item_object = items.query.filter_by(name=sold_item).first()
         if s_item_object:
@@ -42,8 +40,8 @@ def market_page():
                 flash("Item was sold back to the market successfuly", category='success')
             else:
                 flash(f"Something went worng with selling {s_item_object.name}", category='danger')
-        return redirect(url_for('market_page'))    
-        
+        return redirect(url_for('carts_page'))
+    
     if request.method == "GET":
         item = items.query.all()
         owned_items = items.query.filter_by(owner =current_user.id)
@@ -133,6 +131,35 @@ def addItem_page():
                 flash('Error adding Item to the database', category='error')
                 app.logger.error(str(e))
     return render_template('add_items.html', form=form)
+
+@app.route('/carts', methods=['POST', 'GET'])
+def carts_page():
+    selling_form = SellItemForm()
+    purchase_form =PurchaseItemForm()
+# Sell Item Logic
+    if request.method == "POST":
+        purchased_item = request.form.get('purchased_item')
+        p_item_object = items.query.filter_by(name=purchased_item).first()
+        if  p_item_object:
+            if current_user.can_purchase(p_item_object):
+                p_item_object.assigned_user(current_user)
+                flash(f'You purchased {p_item_object.name} for {p_item_object.price}')
+            else:
+                flash('Please you do not have enough balance', category='danger')
+        sold_item = request.form.get('sold_item')
+        s_item_object = items.query.filter_by(name=sold_item).first()
+        if s_item_object:
+            if current_user.can_sell(s_item_object):
+                s_item_object.sell(current_user)
+                flash("Item was sold back to the market successfuly", category='success')
+            else:
+                flash(f"Something went worng with selling {s_item_object.name}", category='danger')
+        return redirect(url_for('market_page'))
+    if request.method == "GET":
+        item = items.query.all()
+        owned_items = items.query.filter_by(owner =current_user.id)
+        return render_template('carts.html', items=item, dollar='$', current_user=current_user, selling_form=selling_form, purchase_form = purchase_form, owned_items=owned_items)
+    
 
 
 
