@@ -6,8 +6,8 @@
 
 {%block content%}
     <!--Products Added to cart-->
-    <div class="col-4">
-        Purchased Items
+    <div class="col-4" align='center'>
+        <h2 align='center'>Purchased Items</h2>
         <div class='row'>
           {%for owned_item in owned_items%}
           {% include 'includes/owned_items_modal.html'%}
