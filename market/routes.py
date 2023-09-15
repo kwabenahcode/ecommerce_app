@@ -45,7 +45,7 @@ def market_page():
         return redirect(url_for('market_page'))    
         
     if request.method == "GET":
-        item = items.query.filter_by()
+        item = items.query.all()
         owned_items = items.query.filter_by(owner =current_user.id)
         return render_template('market.html', items=item, dollar='$', current_user=current_user, purchase_form = purchase_form, selling_form=selling_form, owned_items=owned_items)
 
@@ -126,6 +126,7 @@ def addItem_page():
                             )
             db.session.add(new_items)
             db.session.commit()
+            flash('Item uploaded successfully', category='success')
             return redirect(url_for('addItem_page'))
         except SQLAlchemyError as e:
                 db.session.rollback()  # Rollback changes in case of an error

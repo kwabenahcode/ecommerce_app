@@ -3,3 +3,35 @@
 {% block title%}
     Add-items
 {% endblock%}
+
+{%block content%}
+    <div class='add-product-form'>
+        <form method='POST' enctype='multipart/form-data'>
+            {{form.hidden_tag()}}
+            <h4 align='center' class='text-primary pt-5'>Add Items to Mart</h4>
+            <div class='login-form-sub-container'>
+                {{form.name.label()}}
+                <br />
+                {{form.name(placeholder='Prooduct name', class='login-input-border')}}
+                <br />
+                <br />
+                {{form.description.label()}}
+                <br />
+                {{form.description(placeholder='Description', class='login-input-border')}}
+                <br />
+                <br />
+                {{form.price.label()}}
+                <br />
+                {{form.price(placeholder='Product Price', class='login-input-border')}}
+                <br />
+                <br />
+                {{form.barcode.label()}}
+                <br />
+                {{form.barcode(placeholder='Barcode', class='login-input-border')}}
+                <br />
+                <br />
+                {{form.submit(class='btn btn-primary m-1 ml-5')}}
+            </div>
+        </form>
+    </div>
+{%endblock%}
