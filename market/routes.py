@@ -2,13 +2,13 @@ import base64
 from market import app
 from market.models import items, users, Products
 from flask import render_template, redirect, url_for, flash, request
-from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, ProductUploadForm
+from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, ProductUploadForm, ItemsForm
 from market import db
 from sqlalchemy.exc import SQLAlchemyError
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-# Routes for the home Page
+# Route for the home Page
 @app.route('/', methods =['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home_page():
@@ -17,7 +17,7 @@ def home_page():
         img.product_image = base64.b64encode(img.product_image).decode('utf-8')
     return render_template('home.html', current_user=current_user, items=item )
 
-# Routes for the market Page
+# Route for the market Page
 @app.route('/market', methods=['GET', 'POST'])
 @login_required
 def market_page():
@@ -107,12 +107,33 @@ def add_products():
                 db.session.add(new_product)
                 db.session.commit()
                 flash('Product uploaded successfully', category='success')
-                return redirect(url_for('login_page'))
+                return redirect(url_for('add_products'))
             except SQLAlchemyError as e:
                 db.session.rollback()  # Rollback changes in case of an error
                 flash('Error adding product to the database', category='error')
                 app.logger.error(str(e))  # Log the error for debugging
     return render_template('addProductsTrends.html', form=form)
+
+@app.route('/add-Items', methods=['POST', 'GET'])
+def addItem_page():
+    form = ItemsForm()
+    if request.method == 'POST':
+        try:
+            new_items = items(name = form.name.data,
+                              barcode= form.barcode.data,
+                              description= form.description.data,
+                              price = form.price.data
+                            )
+            db.session.add(new_items)
+            db.session.commit()
+            return redirect(url_for('addItem_page'))
+        except SQLAlchemyError as e:
+                db.session.rollback()  # Rollback changes in case of an error
+                flash('Error adding Item to the database', category='error')
+                app.logger.error(str(e))
+    return render_template('add_items.html', form=form)
+
+
 
 
 # @app.route('/about/<user>')

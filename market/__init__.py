@@ -7,7 +7,6 @@ from flask_login import LoginManager
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
-
 # Created an instance of the Sqlalchemy
 db = SQLAlchemy()
 
@@ -16,14 +15,19 @@ bcrypt = Bcrypt(app)
 
 # creating an instance of the LoginManager
 login_manager = LoginManager(app)
+
 # Sqlalchemy connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'fab07273c260515be3aa1c06'
 engine = create_engine("mysql+pymysql://user:pw@host/db", pool_pre_ping=True)
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(autoflush=False, bind=engine)
 session = Session()
 db.session.expire_on_commit = False
+
 db.init_app(app)
+
+
+
 login_manager.login_view = 'login_page'
 login_manager.login_message_category = 'info'
 

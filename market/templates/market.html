@@ -4,6 +4,32 @@
 {%endblock%}
 
 {%block content%}
+<!--CAROUSEL STARTS HERE-->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{{url_for('static', filename='girls1.jpg')}}" class="d-block img-fluid mart-image-height" alt="...">
+    </div>
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{{url_for('static', filename='laptop1.jpg')}}" class="d-block mart-image-height" alt="...">
+    </div>
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{{url_for('static', filename='phone1.jpg')}}" class="d-block mart-image-height" alt="...">
+    </div>
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{{url_for('static', filename='router1.jpg')}}" class="d-block mart-image-height" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!--END OF CAROUSEL-->
 <!--Table to store the items in the Market-->
 <div class="row mart-table">
   <div class="col-8">
@@ -47,6 +73,13 @@
     </div>
   </div>
 </div>
+
+<!--FOOTER STARTS HERE-->
+<footer class="footer">
+  <p>&copy; 2023 Flasky<span class="text-warning">Mart</span>. All rights reserved.</p>
+  <p>Designed with ❤️ by <a href="https://www.linkedin.com/in/emmanuel-ofori-97439122b/" target="_blank">E Ofori</a></p>
+</footer>
+<!--FOOTER ENDS HERE-->
  
  
 {%endblock%}

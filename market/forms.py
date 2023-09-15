@@ -39,3 +39,9 @@ class ProductUploadForm(FlaskForm):
     product_desc = TextAreaField(label='Description', validators=[Length(min=2, max=1000), DataRequired()])
     product_image = FileField(label='Upload Image', validators=[FileRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')])
     submit = SubmitField(label='Upload Product')
+    
+class ItemsForm(FlaskForm):
+    name = StringField(label='Product name: ', validators=[Length(min=2, max=30), DataRequired()])
+    description = StringField(label='Description', validators=[Length(min=2, max=1000), DataRequired()])
+    barcode = StringField(label='Barcode', validators=[Length(min=2, max=30), DataRequired()])
+    price = FloatField(label='Price')
